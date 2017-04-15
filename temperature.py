@@ -5,7 +5,7 @@ from threading import Event
 import RPi.GPIO as GPIO
 import Adafruit_DHT
 
-from tm1637 import TM1637, BRIGHT_DARKEST, digit_to_segment
+from tm1637 import TM1637, BRIGHT_DARKEST
 
 __author__ = "Evgeny Goncharov"
 
@@ -60,7 +60,7 @@ while run_service.is_set():
         d0 = int(temperature / 10)
         d1 = temperature % 10
 
-        Display.show([d0, d1, digit_to_segment[16], digit_to_segment[12]])
+        Display.show([d0, d1, 16, 12])
 
         # Display.show_double_point(second % 2)
 
