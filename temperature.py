@@ -2,6 +2,7 @@ import time
 import signal
 from threading import Event
 
+import RPi.GPIO as GPIO
 import Adafruit_DHT
 
 from tm1637 import TM1637, digit_to_segment
@@ -67,3 +68,8 @@ while run_service.is_set():
         time.sleep(5)
     except:
         pass
+
+Display.set_brightness(0)
+Display.clear()
+
+GPIO.cleanup([CLK, DIO, DHT11_pin])
