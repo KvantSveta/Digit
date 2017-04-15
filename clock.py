@@ -3,6 +3,8 @@ import signal
 from datetime import datetime
 from threading import Event
 
+import RPi.GPIO as GPIO
+
 from tm1637 import TM1637
 
 __author__ = "Evgeny Goncharov"
@@ -43,3 +45,8 @@ while run_service.is_set():
         time.sleep(1)
     except:
         pass
+
+Display.set_brightness(0)
+Display.clear()
+
+GPIO.cleanup([CLK, DIO])
