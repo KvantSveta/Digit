@@ -5,7 +5,7 @@ from threading import Event
 import RPi.GPIO as GPIO
 import Adafruit_DHT
 
-from tm1637 import TM1637, digit_to_segment
+from tm1637 import TM1637, BRIGHT_DARKEST, digit_to_segment
 
 __author__ = "Evgeny Goncharov"
 
@@ -25,7 +25,7 @@ DIO = 5
 
 DHT11_pin = 16
 
-Display = TM1637(CLK, DIO, TM1637.BRIGHT_HIGHEST)
+Display = TM1637(CLK, DIO, BRIGHT_DARKEST)
 
 F0 = 25.
 N = 10.

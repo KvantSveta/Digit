@@ -5,7 +5,7 @@ from threading import Event
 
 import RPi.GPIO as GPIO
 
-from tm1637 import TM1637
+from tm1637 import TM1637, BRIGHT_DARKEST
 
 __author__ = "Evgeny Goncharov"
 
@@ -26,7 +26,7 @@ signal.signal(signal.SIGTERM, handler)
 CLK = 23
 DIO = 24
 
-Display = TM1637(CLK, DIO, TM1637.BRIGHT_HIGHEST)
+Display = TM1637(CLK, DIO, BRIGHT_DARKEST)
 
 
 while run_service.is_set():
