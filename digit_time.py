@@ -36,8 +36,8 @@ while run_service.is_set():
 
     currenttime = [int(hour / 10), hour % 10, int(minute / 10), minute % 10]
 
-    Display.Show(currenttime)
-    Display.ShowDoublepoint(second % 2)
+    Display.show(currenttime)
+    Display.show_double_point(second % 2)
 
     try:
         time.sleep(1)
