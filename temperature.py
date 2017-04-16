@@ -15,7 +15,7 @@ run_service.set()
 
 def handler(signum, frame):
     run_service.clear()
-    print("Сигнал для остановки контейнера {}".format(signum))
+    print("Signal to stop container {}".format(signum))
 
 
 signal.signal(signal.SIGTERM, handler)
