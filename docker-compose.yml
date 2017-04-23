@@ -1,0 +1,23 @@
+version: "2"
+services:
+  day:
+    image: digit:1.0
+    devices:
+     - "/dev/gpiomem:/dev/gpiomem"
+    entrypoint:
+     - python
+     - day.py
+  clock:
+    image: digit:1.0
+    devices:
+     - "/dev/gpiomem:/dev/gpiomem"
+    entrypoint:
+     - python
+     - clock.py
+  temperature:
+    image: digit:1.0
+    devices:
+     - "/dev/gpiomem:/dev/gpiomem"
+    entrypoint:
+     - python
+     - temperature.py
