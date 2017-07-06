@@ -4,6 +4,7 @@ services:
     image: digit:1.0
     devices:
      - "/dev/gpiomem:/dev/gpiomem"
+    restart: always
     entrypoint:
      - python
      - day.py
@@ -11,11 +12,13 @@ services:
     image: digit:1.0
     devices:
      - "/dev/gpiomem:/dev/gpiomem"
+    restart: always
     entrypoint:
      - python
      - clock.py
   temperature:
     image: digit:1.0
+    restart: always
     devices:
      - "/dev/gpiomem:/dev/gpiomem"
     entrypoint:
