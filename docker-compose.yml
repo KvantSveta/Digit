@@ -3,25 +3,26 @@ services:
   day:
     image: digit:1.1
     devices:
-     - "/dev/gpiomem:/dev/gpiomem"
+      - "/dev/gpiomem:/dev/gpiomem"
     restart: always
     entrypoint:
-     - python
-     - day.py
+      - python
+      - day.py
   clock:
     image: digit:1.1
     devices:
-     - "/dev/gpiomem:/dev/gpiomem"
+      - "/dev/gpiomem:/dev/gpiomem"
     restart: always
     entrypoint:
-     - python
-     - clock.py
+      - python
+      - clock.py
   temperature:
     image: digit:1.1
     restart: always
     devices:
-     - "/dev/gpiomem:/dev/gpiomem"
-     - "/sys/bus/w1/devices/28-05170143ccff/w1_slave:/sys/bus/w1/devices/28-05170143ccff/w1_slave"
+      - "/dev/gpiomem:/dev/gpiomem"
+    volumes:
+      - "/sys/bus/w1/devices/28-05170143ccff/w1_slave:/sys/bus/w1/devices/28-05170143ccff/w1_slave"
     entrypoint:
-     - python
-     - ds18b20.py
+      - python
+      - ds18b20.py
