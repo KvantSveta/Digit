@@ -12,6 +12,11 @@ RUN apt-get update \
 
 ADD . /home
 
+WORKDIR /home/Adafruit_Python_DHT
+
+RUN python setup.py build \
+ && python setup.py install
+
 RUN rm /etc/localtime && \
  ln -s /usr/share/zoneinfo/Europe/Moscow /etc/localtime
 
