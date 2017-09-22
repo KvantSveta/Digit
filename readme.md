@@ -10,7 +10,7 @@ docker build -t digit:1.1 -f Dockerfile .
 **run image**
 ```bash
 docker run -d --device /dev/gpiomem digit:1.1 clock.py
-docker run -d --device /dev/gpiomem --device /sys/bus/w1/devices/28-05170143ccff/w1_slave digit:1.1 ds18b20.py
+docker run -d --device /dev/gpiomem -v /sys/bus/w1/devices/28-05170143ccff/w1_slave:/sys/bus/w1/devices/28-05170143ccff/w1_slave digit:1.1 ds18b20.py
 docker run -d --device /dev/gpiomem digit:1.1 day.py
 ```
 
