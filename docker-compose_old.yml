@@ -1,7 +1,7 @@
 version: "2"
 services:
   day:
-    image: digit:1.1
+    image: digit:1.0
     devices:
      - "/dev/gpiomem:/dev/gpiomem"
     restart: always
@@ -9,7 +9,7 @@ services:
      - python
      - day.py
   clock:
-    image: digit:1.1
+    image: digit:1.0
     devices:
      - "/dev/gpiomem:/dev/gpiomem"
     restart: always
@@ -17,11 +17,10 @@ services:
      - python
      - clock.py
   temperature:
-    image: digit:1.1
+    image: digit:1.0
     restart: always
     devices:
      - "/dev/gpiomem:/dev/gpiomem"
-     - "/sys/bus/w1/devices/28-05170143ccff/w1_slave:/sys/bus/w1/devices/28-05170143ccff/w1_slave"
     entrypoint:
      - python
-     - ds18b20.py
+     - temperature.py
