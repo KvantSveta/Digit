@@ -1,12 +1,10 @@
-FROM armv7/armhf-ubuntu:latest
-
-MAINTAINER Eugene Goncharov NikeLambert@gmail.com
+FROM balenalib/rpi-raspbian
 
 RUN apt-get update \
- && apt-get install -y python \
-                       python-dev \
-                       python-pip \
- && pip install -U pip \
+ && apt-get install -y python3 \
+                       python3-dev \
+                       python3-pip \
+ && pip3 install -U pip \
                    rpi.gpio \
  && apt-get clean
 
@@ -20,4 +18,4 @@ STOPSIGNAL 15
 
 WORKDIR /home
 
-ENTRYPOINT ["python"]
+ENTRYPOINT ["python3"]
